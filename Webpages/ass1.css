@@ -1,6 +1,13 @@
 /* Xu Ziyin 3036173372 */
 
 /* 1 */
+@media only screen and (min-width:1000px){
+  body{
+    width: 80%;
+    min-width:1000px;
+  }
+}
+
 body{
   display: flex;
   flex-direction: column;
@@ -12,28 +19,36 @@ body{
 }
 
 /* 2 */
+@media screen and (min-width: 1000px) {
+  header{
+    padding-left: 1rem;
+    padding-right:1rem;
+  }
+}
+
 header {
   font-family: Verdana, sans-serif;
   background-color: #0099ff;
   color: #fff;
-  padding: 0 1rem;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
 }
 
-header h1 {
-  font-size: 1.5rem;
-  max-width: 50%;
-  margin: 0;
+header h1{
+  font-size:1.5rem;
 }
 
+@media screen and (min-width: 1000px) {
+  header h1 {
+    max-width: 50%;
+    margin: 0;
+  }
+}
+
+
 header nav {
-  /* display: block; */
-  /* flex-wrap: wrap; */
-  /* justify-content: flex-end; */
-  /* align-items: right; */
   width: 50%;
 }
 
@@ -42,7 +57,6 @@ header nav ul li a {
   text-decoration: none;
   padding: 0.5rem;
   margin: 0.5rem;
-  text-decoration: none;
 }
 
 header nav a:hover {
@@ -50,34 +64,36 @@ header nav a:hover {
   text-decoration-color: red;
 }
 
-header nav ul {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-  list-style: none;
-  margin-left: auto;
-}
 
-header nav ul li {
-  width: 50%;
-  margin-left:auto;
-}
+@media screen and (min-width: 1000px) {
+  header nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    list-style: none;
+    margin-left: auto;
+  }
 
+  header nav ul li {
+    width: 50%;
+    margin-left:auto;
+  }
 
-/* 没有占一行 */
-header nav ul::before {
-  content: "\n";
-  display: block;
-  height: 50px;
-  width: 200px;
-  background-repeat: no-repeat;
-  background-image: url("hku-cs-logo.png");
-  background-size: contain;
-  background-position: top right;
-  top: 1rem;
-  right: 1rem;
+  /* 没有占一行 */
+  header nav ul::before {
+    content: "\n";
+    display: block;
+    height: 50px;
+    width: 200px;
+    background-repeat: no-repeat;
+    background-image: url("hku-cs-logo.png");
+    background-size: contain;
+    background-position: top right;
+    top: 1rem;
+    right: 1rem;
+  } 
 }
-  
+ 
 
 /* 3 */
 article{
@@ -138,10 +154,19 @@ table:nth-child(2) tbody tr td:first-child {
 }
 
 /* 8 */
+
+@media screen and (min-width: 1000px) {
+  article nav{
+    bottom: 10px;
+  }
+  article nav li {
+    width: 300px;
+    margin: 10px;
+  }
+}
 article nav {
   background-color: #0099ff;
   position: fixed;
-  bottom: 10px;
   margin: auto;
   width: 80%;
 }
@@ -153,11 +178,6 @@ article nav ul {
   justify-content: left;
   list-style-type: none;
   padding: 0;
-}
-
-article nav li {
-  width: 300px;
-  margin: 10px;
 }
 
 article nav ul li a {
@@ -186,31 +206,41 @@ section:last-child{
   /* 不知道怎么预留空间 */
 }
 
-/* 9 */
-@media only screen and (min-width:1000px){
-  body{
-    width: 80%;
-    min-width:1000px;
-  }
-}
-
-
 @media only screen and (max-width:500px){
+  /* 9 */
   body{
     width:100%;
   }
+  /* 10 */
   article{
     padding-left:10px;
     padding-right:10px;
   }
-  header{
+  /* 11 */
+  header h1{
     width:100%;
     text-align:center;
   }
-  header h1{
-    font-size: 1.5 rem;
+  header nav{
+    vertical-align: center;
   }
-  nav{
+  header nav ul li{
+    list-style: none;
     margin:auto;
   }
+  header nav ul {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+    /* padding :0; */
+    list-style: none;
+    /* margin-left: auto; */
+  }
+
+  /* 12 */
+  article nav{
+    bottom:0;
+    font-size:0.9em;
+  }
+
 }
