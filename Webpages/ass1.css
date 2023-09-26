@@ -26,6 +26,19 @@ body{
   }
 }
 
+@media screen and (min-width:1000px) {
+  header{
+    height: 150px;
+    background-image: url("hku-cs-logo.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: top right;
+    background-size: 200px auto;
+    margin-top: 20px;
+  }
+}
+
+
 header {
   position:relative;
   font-family: Verdana, sans-serif;
@@ -35,6 +48,8 @@ header {
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
+  
+  
 }
 
 header h1{
@@ -84,23 +99,6 @@ header nav a:hover {
     margin-right:0;
     text-align: right; /* 将文本向右对齐 */
   }
-
-  /* 没有占一行 */
-  header nav ul::before {
-    position:absolute;
-    content: "";
-    visibility: hidden;
-    display: block;
-    /* height: 50px; */
-    width: 200px;
-    background-repeat: no-repeat;
-    background-image: url("hku-cs-logo.png");
-    background-size: contain;
-    background-position: top right;
-    top: 1px;
-    right: 1px;
-    /* bottom: 1rem; */
-  } 
 }
  
 
@@ -110,43 +108,44 @@ article{
 }
 
 /* 4 */
-@media screen and (min-width: 1000px) {
-  table {
-    border-collapse: collapse;
-    border: 1px;
-    padding: 0.5rem;
-    border-right: 2px solid lightgrey;
-    border-bottom: 2px solid lightgrey;
-  }
-    
-  thead {
-      background-color: #0099ff;
-      color: white;
-      font-size: 1.2em;
-      text-align: left;
-  }
+table {
+  border-collapse: collapse;
+  border: 1px;
+  padding: 0.5rem;
+  border-right: 2px solid lightgrey;
+  border-bottom: 2px solid lightgrey;
+}
   
-  th {
-      padding: 0.5rem;
-      border-left:2px solid lightgrey;
-      border-top: 2px solid lightgrey;
-  }
-
-  td{
-      border-left:2px solid lightgrey;
-      border-top: 2px solid lightgrey;
-      padding: 0.5rem;
-  }
-
-  td:first-child {
-      width: 100px;
-  }
+thead {
+    background-color: #0099ff;
+    color: white;
+    font-size: 1.2em;
+    text-align: left;
 }
 
+th {
+    padding: 0.5rem;
+    border-left:2px solid lightgrey;
+    border-top: 2px solid lightgrey;
+}
+td{
+  border-top: 2px solid lightgrey;
+}
+@media screen and (min-width: 1000px) {
+  
+  td:first-child {
+    width: 100px;
+  }
 
+}
+
+td{
+    border-left:2px solid lightgrey;
+    padding: 0.5rem;
+}
 
 /* 5? */
-article table:nth-child(2){
+article table:nth-child(3){
   margin: 2rem 0;
 }
 
@@ -186,6 +185,7 @@ p:nth-child(4)::first-line {
 @media screen and (min-width: 1000px) {
   article nav{
     bottom: 10px;
+    width: 80%;
   }
   article nav li {
     width: 300px;
@@ -196,7 +196,12 @@ article nav {
   background-color: #0099ff;
   position: fixed;
   margin: auto;
-  width: 80%;
+}
+
+@media screen and (max-width: 500px) {
+  article nav{
+    width:95%;
+  }
 }
 
 article nav ul {
@@ -214,6 +219,13 @@ article nav ul li a {
   color: white;
 }
 
+@media screen and (max-width:500px) {
+  article nav ul li {
+    margin-left:20px;
+  }
+}
+
+
 section{
   border: 0.5px solid lightgray;
   background-color: #f9f9fb;
@@ -229,7 +241,6 @@ section:nth-child(even) {
 
 section:last-child{
   margin-bottom: 300px;
-  /* 不知道怎么预留空间 */
 }
 
 @media only screen and (max-width:500px){
@@ -276,44 +287,40 @@ section:last-child{
 @media screen and (max-width:500px) {
   table {
     border-collapse: collapse;
-    width:100%;
   }
   
-  /* td, th {
-    border: 1px solid black;
-    padding: 5px;
-    position: relative;
-  } */
+  article table thead tr{
+    /* border-top: 2px solid red; */
+    padding: 10px;
+  }
   
-  article table thead tr th{
+  article table:nth-child(2):has(p) thead tr th{
     display: none;
   }
 
-
-  article table tbody tr{
+  article table:nth-child(2) tbody tr:has(p){
     display:flex;
     flex-direction: column;
+    border-bottom: 3px solid lightgray;
+    border-top: 3px solid lightgray;
   }
-  article table tbody tr td {
-    border: 1px solid black;
-    padding: 10px;
+  article table:nth-child(2) tbody tr td:has(p) {
+    border-top:none;
+    border-bottom: 3px solid lightgray;
+    /* padding: 10px; */
   }
 
-  article table tbody tr td:first-child:before {
-    content:"Date:    ";
-    color:red;
+  article table:nth-child(2) tbody tr td:first-child p:before {
+    content:"Date:";
     float:left;
     font-weight: bold;
     padding-right:5px;
   }
-
-  article table tbody tr td:first-child {
-    color:purple;
-    white-space: nowrap;
-  }
   
-  article table tbody tr td p {
+  article table:nth-child(2) tbody tr td p {
     margin: 0;
+    word-wrap: break-word;
+    word-break: break-all;
   }
   
 }
